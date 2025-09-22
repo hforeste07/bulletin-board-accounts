@@ -37,9 +37,22 @@
                 </strong>
               </a>
             </li>
-            <li>
-              <%= current_user %>
-            </li>
+            <% if current_user == true %>
+              <li>
+                <a href="/users/sign_in">Sign in</a>
+              </li>
+              <li>
+                <a href="/users/sign_up">Sign up</a>
+              </li>
+
+            <% else %>
+              <li>
+                <a href="/users/edit">Edit profile</a>
+              </li>
+              <li>
+                <a href="/users/sign_out">Sign out</a>
+              </li>
+            <% end %>
           </ul>
         </nav>
       </div>
