@@ -6,7 +6,12 @@
   </ul>
 </nav>
 
-<p>Managed by: <%= @the_board.user %></p>
+<p>Managed by: <%= @the_board.user.username %></p>
+              <% @the_board.user.username %>
+              <% if current_user == @the_board.user %>
+                <a href="/delete_board/<%= @the_board.id %>">Delete</a>
+              <% end %>
+
 
 <article>
   <header>
@@ -39,7 +44,7 @@
             <td>
               <%= a_listing.user.username %>
               <% if a_listing.user == current_user || current_user == @the_board.user %>
-                <a href="/delete_listing/<%= a_listing.id %>">Delete</a>
+                <a href="/delete_listing/<%= a_listing.id %>">Delete listing</a>
               <% end %>
             </td>
 
